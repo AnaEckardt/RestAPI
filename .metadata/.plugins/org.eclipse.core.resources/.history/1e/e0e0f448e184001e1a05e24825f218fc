@@ -1,0 +1,10 @@
+package com.example.demo.entidades;
+
+public class Compromisso {
+	
+	private long id;
+	private long idlocal;
+	private long idcontato;
+	
+
+}
