@@ -11,15 +11,13 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.entidades.Compromisso;
 import com.example.demo.repository.CompromissoRepository;
 
-@RestController
-@RequestMapping
-
+/*@RestController
+@RequestMapping("/compromissos")*/
 public class CompromissoController {
 	@Autowired
-	CompromissoRepository repo;
+	CompromissoRepository repo;	
 	
-	
-	@PostMapping()
+	@PostMapping
 	public ResponseEntity<Compromisso> InserirCompromisso(@RequestBody Compromisso compromisso) {
 		Compromisso comp = repo.save(compromisso);
 		return ResponseEntity.status(HttpStatus.CREATED).body(comp);

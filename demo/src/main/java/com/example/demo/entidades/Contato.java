@@ -12,19 +12,21 @@ import jakarta.persistence.Transient;
 public class Contato {
 	@Id
 	@GeneratedValue( strategy = GenerationType.IDENTITY)
-	private long id;
+	private Long id;
 	@Column(length = 50, nullable = false)
 	private String nome;
 	@Column(length = 100, nullable = false) // alterar tamanho do 
 	private String email;
+	@Column(length = 100, nullable = false) // alterar tamanho do 
+	private String fone;
 	@Transient  //anotação pro atributo não ir pra tabela no banco de dados.
 	private String observacao;
 	
 	
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public String getNome() {
@@ -37,8 +39,14 @@ public class Contato {
 		return email;
 	}
 	public void setEmail(String email) {
-		this.email = email;
+		this.email = email;		
 	}	
+	public String getFone() {
+		return fone;
+	}
+	public void setFone(String fone) {
+		this.fone = fone;
+	}
 	public String getObservacao() {
 		return observacao;
 	}
@@ -48,7 +56,7 @@ public class Contato {
 	public Contato() {
 	}
 	
-	public Contato(int id, String nome, String email) {
+	public Contato(Long id, String nome, String email) {
 		this.id = id;
 		this.nome = nome;
 		this.email = email;

@@ -19,17 +19,17 @@ import com.example.demo.entidades.Locais;
 import com.example.demo.repository.LocalRepository;
 
 @RestController
-@RequestMapping
+@RequestMapping("/locais")
 public class LocalController {
 	@Autowired
 	LocalRepository repo;
 
-	@PostMapping()
+	/*@PostMapping
 	public ResponseEntity<Locais> InserirLocal(@RequestBody Locais local) {
 		Locais lc = repo.save(local);
 		return ResponseEntity.status(HttpStatus.CREATED).body(lc);
 	}
-
+*/
 	@PutMapping("/{idlocal}")
 	public ResponseEntity<Locais> AlterarLocal(@PathVariable("idlocal") long idlocal, @RequestBody Locais loca1) {
 		Optional<Locais> opLocal = repo.findById(idlocal);

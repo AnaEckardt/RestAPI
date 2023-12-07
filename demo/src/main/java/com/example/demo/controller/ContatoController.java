@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,19 +22,19 @@ import com.example.demo.repository.ContatoRepository;
 @RestController  // passa a ser uma classe que recebe requisição.
 @RequestMapping("/contatos") // se usar o requestmapping não preciso passar o end point nos métodos 
 // abaixo. Mas somente posso usar se todos os métodos da classe vão usar o mesmo ednpoint contato.
-
+@CrossOrigin // liberar as requisições de outro servidor.
 public class ContatoController {
 	@Autowired
 	ContatoRepository repo;
 		            
-	    @PostMapping()
+	    @PostMapping
 	    public ResponseEntity<Contato> InserirContatos(@RequestBody Contato contato){
 	    	Contato ct = repo.save(contato);
 	    	return ResponseEntity.status(HttpStatus.CREATED).body(ct);
 	    }
 	    
 	    @PutMapping("/{idcontato}")
-	    public ResponseEntity<Contato> AlterarContatos(@PathVariable("idcontato")long idcontato,@RequestBody Contato contato){
+	    public ResponseEntity<Contato> AlterarContatos(@PathVariable("idcontato")Long idcontato,@RequestBody Contato contato){
 	    	Optional<Contato> opContato = repo.findById(idcontato);
 	    	try {
 	    		Contato ct = opContato.get();
@@ -47,13 +48,13 @@ public class ContatoController {
 	    	}	    	
 	    }
 	    
-	    @GetMapping()
+	    @GetMapping
 	    public ResponseEntity<List<Contato>> getContatos(){
 	    	return ResponseEntity.status(HttpStatus.OK).body(repo.findAll());
 	    }
 	    
 	    @GetMapping("/{id}")
-	    public ResponseEntity<Contato> getUmContato(@PathVariable("id")long id) {
+	    public ResponseEntity<Contato> getUmContato(@PathVariable("id")Long id) {
 	    	Optional<Contato> opContato = repo.findById(id);
 	    	try {
 	    		Contato ct = opContato.get();
@@ -65,7 +66,7 @@ public class ContatoController {
 	    }
 	    
 	    @DeleteMapping("/{id}")
-		public ResponseEntity<Contato> DeletarContato(@PathVariable("id")long id, @RequestBody Contato contato){
+		public ResponseEntity<Contato> DeletarContato(@PathVariable("id")Long id, @RequestBody Contato contato){
 	    	Optional<Contato> opContato = repo.findById(id);
 	    	try {
 	    		Contato ct = opContato.get();
