@@ -34,7 +34,7 @@ public class ContatoController {
 	    }
 	    
 	    @PutMapping("/{idcontato}")
-	    public ResponseEntity<Contato> AlterarContatos(@PathVariable("idcontato")Long idcontato,@RequestBody Contato contato){
+	    public ResponseEntity<Contato> AlterarContatos(@PathVariable("idContato")Long idcontato,@RequestBody Contato contato){
 	    	Optional<Contato> opContato = repo.findById(idcontato);
 	    	try {
 	    		Contato ct = opContato.get();

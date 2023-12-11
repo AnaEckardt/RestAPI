@@ -8,7 +8,6 @@
     <fullyQualifiedTypeName name="jakarta.persistence.Table"/>
     <fullyQualifiedTypeName name="jakarta.persistence.Id"/>
     <fullyQualifiedTypeName name="jakarta.persistence.GeneratedValue"/>
-    <fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
     <fullyQualifiedTypeName name="com.example.demo.repository.ContatoRepository"/>
     <fullyQualifiedTypeName name="com.example.demo.entidades.Contato"/>
     <fullyQualifiedTypeName name="org.springframework.cglib.core.Local"/>
@@ -38,4 +37,6 @@
     <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
     <fullyQualifiedTypeName name="com.example.demo.repository.CompromissoRepository"/>
     <fullyQualifiedTypeName name="com.example.demo.entidades.Compromisso"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.CrossOrigin"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
 </qualifiedTypeNameHistroy>
